@@ -12,7 +12,7 @@ class RoleTableSeeder extends Seeder
     public function run()
     {
         DB::table('roles')->insert([
-            'name' => 'source',
+            'name' => 'super admin',
             'created_at' => date('c'),
             'updated_at' => date('c')
         ]);
