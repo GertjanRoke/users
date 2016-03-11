@@ -1,18 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\IntoTheSource\Users;
+namespace App\Http\Controllers;
 
-use App\UserManager as User;
+use App\User;
 use App\Role;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateUserRequest;
-use App\Http\Requests\updateUserRequest;
+use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 
 /**
  * Users controller
  * @package users
- * @author Gertjan Roke <groke@intothesource.com>
+ * @author Gertjan Roke
  */
 class UsersController extends Controller
 {
@@ -25,7 +24,7 @@ class UsersController extends Controller
     {
         $users = User::all();
         $deletedUsers = User::onlyTrashed()->get();
-        return view('intothesource.usersmanager.users.index', compact('users', 'deletedUsers'));
+        return view('snatertj.users.index', compact('users', 'deletedUsers'));
     }
 
     /**
@@ -36,16 +35,16 @@ class UsersController extends Controller
     public function create()
     {
         $roles = Role::lists('name', 'id');
-        return view('intothesource.usersmanager.users.create', compact('roles'));
+        return view('snatertj.users.create', compact('roles'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  CreateUserRequest  $request
+     * @param  UserRequest  $request
      * @return Response
      */
-    public function store(CreateUserRequest $request)
+    public function store(UserRequest $request)
     {
         $user = new User;
         $request['password'] = bcrypt($request->get('password'));
@@ -65,20 +64,20 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($id);
         $roles = Role::lists('name', 'id');
-        return view('intothesource.usersmanager.users.edit', compact('user', 'roles'));
+        return view('snatertj.users.edit', compact('user', 'roles'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request  $request
      * @param  int  $id
+     * @param  UserRequest  $request
      * @return Response
      */
-    public function update(UpdateUserRequest $request, $id)
+    public function update(UserRequest $request, $id)
     {
         $user = User::findOrFail($id);
-        if($request->get('password') && ( bcrypt($request->get('old_password')) == $user->password)) {
+        if($request->get('password') && (bcrypt($request->get('old_password')) == $user->password)) {
             $request['password'] = bcrypt($request->get('password'));
         } elseif(!$request->get('password')) {
             $request['password'] = $user->password;
