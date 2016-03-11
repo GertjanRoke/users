@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\IntoTheSource\Users;
+namespace App\Http\Controllers;
 
 use App\Role;
 use App\Http\Requests\RolesRequest;
@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 /**
  * Roles Controller
  * @package users
- * @author Gertjan Roke <groke@intothesource.com>
+ * @author Gertjan Roke
  */
 class RolesController extends Controller
 {
@@ -22,7 +22,7 @@ class RolesController extends Controller
     public function index()
     {
         $roles = Role::all();
-        return view('intothesource.usersmanager.roles.index', compact('roles'));
+        return view('snatertj.roles.index', compact('roles'));
     }
 
     /**
@@ -32,7 +32,7 @@ class RolesController extends Controller
      */
     public function create()
     {
-        return view('intothesource.usersmanager.roles.create');
+        return view('snatertj.roles.create');
     }
 
     /**
@@ -49,17 +49,6 @@ class RolesController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -68,7 +57,7 @@ class RolesController extends Controller
     public function edit($id)
     {
         $role = Role::findOrFail($id);
-        return view('intothesource.usersmanager.roles.edit', compact('role'));
+        return view('snatertj.roles.edit', compact('role'));
     }
 
     /**
