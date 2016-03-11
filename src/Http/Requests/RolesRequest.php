@@ -15,8 +15,8 @@ class RolesRequest extends Request
      */
     public function authorize()
     {
-        $user = User::findOrFail(\Auth()->user()->id);
-        if(in_array('admin', $user->roles->lists('name')->toArray()) OR in_array('source', $user->roles->lists('name')->toArray())) {
+        $user = \Auth::user();
+        if($user->hasRoles(['admin', 'super admin'])) {
             return true;
         } else {
             return false;
@@ -32,11 +32,6 @@ class RolesRequest extends Request
     {
         switch($this->method())
         {
-            case 'GET':
-            case 'DELETE':
-            {
-                return [];
-            }
             case 'POST':
             {
                 return [
