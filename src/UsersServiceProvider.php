@@ -1,10 +1,10 @@
 <?php
 
-namespace IntoTheSource\Users;
+namespace Snatertj\Users;
 
 /**
  * 
- * @author Gertjan Roke <gjroke@intothesource.com>
+ * @author Gertjan Roke
  */
 
 use Illuminate\Support\ServiceProvider;
@@ -22,7 +22,7 @@ class UsersServiceProvider extends ServiceProvider
 	public function boot()
 	{
 		$this->setupRoutes($this->app->router);
-		/**
+	/**
          * Add all the Models
          */
         $this->publishes([
@@ -44,7 +44,7 @@ class UsersServiceProvider extends ServiceProvider
          * Add all the view files
          */
         $this->publishes([
-            __DIR__.'/views' => base_path('/resources/views/intothesource/usersmanager')
+            __DIR__.'/views' => base_path('/resources/views/snatertj/usersmanager')
         ], 'requests');
         /**
          * Add all the style and script files
@@ -69,7 +69,7 @@ class UsersServiceProvider extends ServiceProvider
          * Add all the controllers
          */
         $this->publishes([
-            __DIR__.'/Http/Controllers' => app_path('/Http/Controllers/Intothesource/Users')
+            __DIR__.'/Http/Controllers' => app_path('/Http/Controllers')
         ], 'controllers');
     }
 	/**
@@ -80,7 +80,7 @@ class UsersServiceProvider extends ServiceProvider
 	 */
 	public function setupRoutes(Router $router)
 	{
-		$router->group(['namespace' => 'App\Http\Controllers\IntoTheSource\Users'], function($router)
+		$router->group(['namespace' => 'App\Http\Controllers\Snatertj\Users'], function($router)
 		{
 			require __DIR__.'/Http/routes.php';
 		});
@@ -89,7 +89,7 @@ class UsersServiceProvider extends ServiceProvider
 	{
 		$this->registerUsermanager();
 		config([
-				'config/source.usermanager.php',
+				'config/usermanager.php',
 		]);
 	}
 	private function registerUsermanager()
