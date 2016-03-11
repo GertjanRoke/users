@@ -3,10 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\User as DefaultUserModel;
-use App\UserManager as MeSelf;
+use Illuminate\Database\Eloquent\Model;
+use App\User as MeSelf;
 
-class UserManager extends DefaultUserModel
+class User extends Model
 {    
     use SoftDeletes;
 
