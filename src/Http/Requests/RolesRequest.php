@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Role;
-use App\UserManager;
+use App\User;
 use App\Http\Requests\Request;
 
 class RolesRequest extends Request
@@ -15,7 +15,7 @@ class RolesRequest extends Request
      */
     public function authorize()
     {
-        $user = UserManager::findOrFail(\Auth()->user()->id);
+        $user = User::findOrFail(\Auth()->user()->id);
         if(in_array('admin', $user->roles->lists('name')->toArray()) OR in_array('source', $user->roles->lists('name')->toArray())) {
             return true;
         } else {
