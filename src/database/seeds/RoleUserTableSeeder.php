@@ -13,21 +13,21 @@ class RoleUserTableSeeder extends Seeder
      */
     public function run()
     {
-        $source = User::where('email', '=', 'cms@intothesource.com')->first();
-        $source_role = Role::where('name', '=', 'source')->first();
-        if($source && $source_role){
+        $superAdmin = User::where('email', '=', 'example@example.com')->first();
+        $superAdminRole = Role::where('name', '=', 'super admin')->first();
+        if($superAdmin && $superAdminRole){
             DB::table('role_user')->insert([
-                'role_id' => $source_role->id,
-                'user_id' => $source->id,
+                'role_id' => $superAdminRole->id,
+                'user_id' => $superAdmin->id,
                 'created_at' => date('c'),
                 'updated_at' => date('c')
             ]);
         }
         $admin = User::where('email', '=', 'admin@admin.com')->first();
-        $admin_role = Role::where('name', '=', 'admin')->first();
-        if($admin && $admin_role){
+        $adminRole = Role::where('name', '=', 'admin')->first();
+        if($admin && $adminRole){
             DB::table('role_user')->insert([
-                'role_id' => $admin_role->id,
+                'role_id' => $adminRole->id,
                 'user_id' => $admin->id,
                 'created_at' => date('c'),
                 'updated_at' => date('c')
