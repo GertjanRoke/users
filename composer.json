@@ -1,19 +1,12 @@
 {
-    "name": "intothesource/users",
-    "description": "User manager with roles (single and multiple)",
-    "keywords": ["user manager", "user managersystem", "user manager and roles", "the source", "thesource", "in to the source", "intothesource"],
-    "homepage": "https://github.com/intothesource/users",
-    "license": "BSD-2",
+    "name": "snatertj/users",
     "authors": [
         {
             "name": "Gertjan Roke",
-            "email": "gjroke@intothesource.com",
-            "homepage": "http://wwww.intothesource.com",
-            "role": "Developer"
+            "email": "g.a.roke90@gmail.com",
         }
     ],
     "require": {
-        "intothesource/entrance" : "0.1.*",
         "illuminate/html": "^5.0",
         "illuminate/support": "~5.1",
         "php" : ">=5.5.9"
@@ -24,12 +17,12 @@
     },
     "autoload": {
         "psr-4": {
-            "IntoTheSource\\Users\\": "src"
+            "Snatertj\\Users\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "IntoTheSource\\Users\\Test\\": "tests"
+            "Snatertj\\Users\\Test\\": "tests"
         }
     },
     "scripts": {
