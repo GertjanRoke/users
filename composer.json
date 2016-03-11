@@ -3,11 +3,11 @@
     "authors": [
         {
             "name": "Gertjan Roke",
-            "email": "g.a.roke90@gmail.com",
+            "email": "g.a.roke90@gmail.com"
         }
     ],
     "require": {
-        "illuminate/html": "^5.0",
+        "laravelcollective/html": "5.1.*",
         "illuminate/support": "~5.1",
         "php" : ">=5.5.9"
     },
