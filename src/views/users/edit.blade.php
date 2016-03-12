@@ -1,4 +1,4 @@
-@extends('intothesource.usersmanager.default')
+@extends('snatertj.usersmanager.default')
 
 
 @section('content')
@@ -6,7 +6,7 @@
     <h1>Update user</h1>
     <a href="{{ route('user.manager.index') }}" class="btn btn-danger">Back</a>
     <hr>    
-    @include('intothesource.usersmanager.errors')
+    @include('snatertj.usersmanager.errors')
     {!! Form::model($user, ['route' => ['user.manager.update', $user->id], 'class' => 'form', 'method' => 'PUT']) !!}
         <div class="form-group">
             {!! Form::label('name', 'Name') !!}
@@ -30,7 +30,7 @@
             <span class="check-password"></span>
         </div>
         <div class="form-group">
-        @if (config('intothesource.usermanager.multiple'))
+        @if (config('snatertj.usermanager.multiple'))
            @if($roles->count())
                 {!! Form::label('role', 'Roles') !!}
                 <br>

@@ -1,4 +1,4 @@
-@extends('intothesource.usersmanager.default')
+@extends('snatertj.usersmanager.default')
 
 
 @section('content')

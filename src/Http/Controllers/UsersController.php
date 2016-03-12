@@ -24,7 +24,7 @@ class UsersController extends Controller
     {
         $users = User::all();
         $deletedUsers = User::onlyTrashed()->get();
-        return view('snatertj.users.index', compact('users', 'deletedUsers'));
+        return view('snatertj.usersmanager.users.index', compact('users', 'deletedUsers'));
     }
 
     /**
@@ -35,7 +35,7 @@ class UsersController extends Controller
     public function create()
     {
         $roles = Role::lists('name', 'id');
-        return view('snatertj.users.create', compact('roles'));
+        return view('snatertj.usersmanager.users.create', compact('roles'));
     }
 
     /**
@@ -64,7 +64,7 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($id);
         $roles = Role::lists('name', 'id');
-        return view('snatertj.users.edit', compact('user', 'roles'));
+        return view('snatertj.usersmanager.users.edit', compact('user', 'roles'));
     }
 
     /**
