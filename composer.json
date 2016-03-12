@@ -1,5 +1,9 @@
 {
     "name": "snatertj/users",
+    "description": "users",
+    "keywords": ["users", "roles"],
+    "homepage": "https://github.com/snatertj/users",
+    "license": "MIT",
     "authors": [
         {
             "name": "Gertjan Roke",
