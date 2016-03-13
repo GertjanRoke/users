@@ -1,6 +1,6 @@
 <?php
 
-namespace IntoTheSource\Users;
+namespace Snatertj\Users;
 
 class SkeletonClass
 {
