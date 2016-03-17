@@ -10,7 +10,7 @@ use App\Http\Requests\Request;
  * @package users
  * @author Gertjan Roke
  */
-class UpdateUserRequest extends Request
+class UserRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -34,8 +34,6 @@ class UpdateUserRequest extends Request
      */
     public function rules()
     {
-        $id = $this->route()->users;
-        $user = User::findOrFail($id);
         switch($this->method())
         {
             case 'POST':
@@ -50,6 +48,8 @@ class UpdateUserRequest extends Request
             case 'PUT':
             case 'PATCH':
             {
+                $id = $this->route()->users;
+                $user = User::findOrFail($id);
                 if(!$this->get('password'))
                 {
                     return [
