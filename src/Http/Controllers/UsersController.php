@@ -7,6 +7,7 @@ use App\Role;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
+use Auth;
 
 /**
  * Users controller
@@ -24,7 +25,7 @@ class UsersController extends Controller
     {
         $users = User::all();
         $deletedUsers = User::onlyTrashed()->get();
-        return view('snatertj.usersmanager.users.index', compact('users', 'deletedUsers'));
+        return view('snatertj.users.index', compact('users', 'deletedUsers'));
     }
 
     /**
@@ -35,7 +36,7 @@ class UsersController extends Controller
     public function create()
     {
         $roles = Role::lists('name', 'id');
-        return view('snatertj.usersmanager.users.create', compact('roles'));
+        return view('snatertj.users.create', compact('roles'));
     }
 
     /**
@@ -48,7 +49,7 @@ class UsersController extends Controller
     {
         $user = new User;
         $request['password'] = bcrypt($request->get('password'));
-        $user = $user->create($request->only($user->getFillable()));
+        $user = $user->create($request->all());
         $user->roles()->sync(collect($request->get('role'))->all());
 
         return redirect()->route('user.manager.index');
@@ -64,7 +65,7 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($id);
         $roles = Role::lists('name', 'id');
-        return view('snatertj.usersmanager.users.edit', compact('user', 'roles'));
+        return view('snatertj.users.edit', compact('user', 'roles'));
     }
 
     /**
@@ -77,12 +78,13 @@ class UsersController extends Controller
     public function update(UserRequest $request, $id)
     {
         $user = User::findOrFail($id);
-        if($request->get('password') && (bcrypt($request->get('old_password')) == $user->password)) {
+
+        if($request->get('password') && Auth::attempt(['email' => $user->email, 'password' => $request->old_password])) {
             $request['password'] = bcrypt($request->get('password'));
         } elseif(!$request->get('password')) {
             $request['password'] = $user->password;
         } else {
-            return redirect()->back()->withInput()->withErrors(['password' => 'The given password is not correct.']);
+            return redirect()->back()->withInput()->withErrors(['old_password' => 'Het opgegeven huidig wachtwoord is niet correct.']);
         }
         $user->update($request->only($user->getFillable()));
         $user->roles()->sync(collect($request->get('role'))->all());
