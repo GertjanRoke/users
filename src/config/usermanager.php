@@ -1,6 +1,6 @@
 <?php
 	return [
-        "message" => "Welcome! Nice to know that your using the Users Manager package made by Snatertj",
+        "message" => "Welcome! Nice to know that your using the Users Manager package made by Gertjan Roke",
         
         /**
          * Multiple roles per user

@@ -1,11 +1,11 @@
-@extends('snatertj.usersmanager.default')
+@extends('gertjanroke.usersmanager.default')
 
 
 @section('content')
 
     <h1>Create new role</h1>
     <p><a href="{{ route('role.manager.index') }}" class="btn btn-danger">Back</a></p>
-    @include('snatertj.usersmanager.errors')
+    @include('gertjanroke.usersmanager.errors')
     {!! Form::model($role, ['route' => ['role.manager.update', $role->id], 'method' => 'PUT', 'class' => 'form']) !!}
         <div class="form-group">
             {!! Form::label('name', 'Name') !!}

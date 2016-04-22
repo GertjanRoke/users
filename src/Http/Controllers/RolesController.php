@@ -22,7 +22,7 @@ class RolesController extends Controller
     public function index()
     {
         $roles = Role::all();
-        return view('snatertj.usermanager.roles.index', compact('roles'));
+        return view('gertjanroke.usermanager.roles.index', compact('roles'));
     }
 
     /**
@@ -32,7 +32,7 @@ class RolesController extends Controller
      */
     public function create()
     {
-        return view('snatertj.usermanager.roles.create');
+        return view('gertjanroke.usermanager.roles.create');
     }
 
     /**
@@ -57,7 +57,7 @@ class RolesController extends Controller
     public function edit($id)
     {
         $role = Role::findOrFail($id);
-        return view('snatertj.usermanager.roles.edit', compact('role'));
+        return view('gertjanroke.usermanager.roles.edit', compact('role'));
     }
 
     /**

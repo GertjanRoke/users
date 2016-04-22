@@ -1,11 +1,11 @@
-@extends('snatertj.usersmanager.default')
+@extends('gertjanroke.usersmanager.default')
 
 
 @section('content')
     <h1>Create User</h1>
     <a href="{{ route('user.manager.index') }}" class="btn btn-danger">Back</a>
     <hr>
-    @include('snatertj.usersmanager.errors')
+    @include('gertjanroke.usersmanager.errors')
     {!! Form::open(['route' => 'user.manager.store', 'class' => 'form']) !!}
         <div class="form-group">
             {!! Form::label('name', 'Name') !!}
@@ -25,7 +25,7 @@
             <span class="check-password"></span>
         </div>
         <div class="form-group">
-        @if (config('snatertj.usermanager.multiple'))
+        @if (config('gertjanroke.usermanager.multiple'))
            @if($roles->count())
                 {!! Form::label('role', 'Roles') !!}
                 <br>

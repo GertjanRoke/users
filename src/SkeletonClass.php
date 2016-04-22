@@ -1,6 +1,6 @@
 <?php
 
-namespace Snatertj\Users;
+namespace Gertjanroke\Users;
 
 class SkeletonClass
 {

@@ -3,7 +3,7 @@ User manager with roles (single and multiple)
 
 ## Install
 ```bash
-composer require snatertj/users
+composer require gertjanroke/users
 ```
 
 
@@ -15,7 +15,7 @@ Add the following line to "config/app.php"
 at "providers":
 
 ```bash
-Snatertj\Users\UsersServiceProvider::class,
+Gertjanroke\Users\UsersServiceProvider::class,
 Collective\Html\HtmlServiceProvider::class,
 ```
 
@@ -45,7 +45,7 @@ php artisan migrate
 Add the following lines to the '$routeMiddleware' array in the file 'App/Http/Kernel.php'
 
 ```bash
-'onlyAdmin' => \Snatertj\Users\Http\Middleware\IfAdmin::class,
+'onlyAdmin' => \Gertjanroke\Users\Http\Middleware\IfAdmin::class,
 ```
 
 If you go to the user index you first need a role that sign in the config file
