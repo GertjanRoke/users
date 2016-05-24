@@ -1,6 +1,6 @@
 <?php
 
-namespace Snatertj\Users\Http\Middleware;
+namespace Gertjanroke\Users\Http\Middleware;
 
 use App\User;
 use Closure;
