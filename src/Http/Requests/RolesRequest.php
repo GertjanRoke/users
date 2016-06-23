@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests;
 
-use App\Role;
-use App\User;
+use App\Models\Role;
+use App\Models\User;
 use App\Http\Requests\Request;
 
 class RolesRequest extends Request
