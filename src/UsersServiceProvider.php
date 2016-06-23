@@ -25,7 +25,7 @@ class UsersServiceProvider extends ServiceProvider
          * Add all the files
          */
         $this->publishes([
-            __DIR__.'/Models' => app_path(),
+            __DIR__.'/Models' => app_path('/Models'),
             __DIR__.'/config' => config_path(),
             __DIR__.'/Http/Requests' => app_path('/Http/Requests'),
             __DIR__.'/views' => base_path('/resources/views/gertjanroke/usersmanager'),
