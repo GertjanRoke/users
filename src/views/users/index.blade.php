@@ -1,4 +1,4 @@
-@extends('gertjanroke.usersmanager.default')
+@extends('gertjanroke.usermanager.default')
 
 
 @section('content')
