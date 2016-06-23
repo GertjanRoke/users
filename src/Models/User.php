@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -10,7 +10,6 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
-use App\User as MeSelf;
 
 class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract
 {
@@ -51,7 +50,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      */
     public function roles()
     {
-        return $this->belongsToMany('App\Role', 'role_user', 'user_id', 'role_id')->withTimestamps();
+        return $this->belongsToMany('App\Models\Role', 'role_user', 'user_id', 'role_id')->withTimestamps();
     }
 
     /**
@@ -64,7 +63,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     {
         $user = \Auth::user();
         foreach($roles as $role) {
-            if(in_array($role, $user->roles->lists('name')->toArray())) {
+            if(in_array($role, $user->roles()->lists('name')->toArray())) {
                 return true;
             }
         }
