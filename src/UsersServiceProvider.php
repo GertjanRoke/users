@@ -28,7 +28,7 @@ class UsersServiceProvider extends ServiceProvider
             __DIR__.'/Models' => app_path('/Models'),
             __DIR__.'/config' => config_path(),
             __DIR__.'/Http/Requests' => app_path('/Http/Requests'),
-            __DIR__.'/views' => base_path('/resources/views/gertjanroke/usersmanager'),
+            __DIR__.'/views' => base_path('/resources/views/gertjanroke/usermanager'),
             __DIR__.'/assets/css' => public_path('/assets/css'),
             __DIR__.'/assets/js' => public_path('/assets/js'),
             __DIR__.'/database/migrations' => database_path('migrations'),
