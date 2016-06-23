@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Role;
+use App\Models\User;
+use App\Models\Role;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
@@ -25,7 +25,7 @@ class UsersController extends Controller
     {
         $users = User::all();
         $deletedUsers = User::onlyTrashed()->get();
-        return view('gertjanroke.users.index', compact('users', 'deletedUsers'));
+        return view('gertjanroke.usermanager.users.index', compact('users', 'deletedUsers'));
     }
 
     /**
@@ -36,7 +36,7 @@ class UsersController extends Controller
     public function create()
     {
         $roles = Role::lists('name', 'id');
-        return view('gertjanroke.users.create', compact('roles'));
+        return view('gertjanroke.usermanager.users.create', compact('roles'));
     }
 
     /**
@@ -65,7 +65,7 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($id);
         $roles = Role::lists('name', 'id');
-        return view('gertjanroke.users.edit', compact('user', 'roles'));
+        return view('gertjanroke.usermanager.users.edit', compact('user', 'roles'));
     }
 
     /**
