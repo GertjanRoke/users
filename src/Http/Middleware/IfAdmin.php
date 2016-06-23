@@ -2,7 +2,7 @@
 
 namespace Gertjanroke\Users\Http\Middleware;
 
-use App\User;
+use App\Models\User;
 use Closure;
 
 class IfAdmin
