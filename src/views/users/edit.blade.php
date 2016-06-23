@@ -1,4 +1,4 @@
-@extends('gertjanroke.usersmanager.default')
+@extends('gertjanroke.usermanager.default')
 
 
 @section('content')
@@ -6,7 +6,7 @@
     <h1>Update user</h1>
     <a href="{{ route('user.manager.index') }}" class="btn btn-danger">Back</a>
     <hr>    
-    @include('gertjanroke.usersmanager.errors')
+    @include('gertjanroke.usermanager.errors')
     {!! Form::model($user, ['route' => ['user.manager.update', $user->id], 'class' => 'form', 'method' => 'PUT']) !!}
         <div class="form-group">
             {!! Form::label('name', 'Name') !!}
